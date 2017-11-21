@@ -1,25 +1,24 @@
 // https://js.checkio.org/mission/break-rings/
 
-function break_a_ring(rings, num) {
-  let newrings = [];
-  rings.forEach(ring => {
-    if (ring[0] !== num && ring[1] !== num) newrings.push(ring);
-  });
-  return newrings;
-}
-
+// by author Sim0000  
 function breakRings(rings) {
-  if (rings.length === 0) return 0;
-  let left = breakRings(break_a_ring(rings, rings[0][0])) + 1;
-  let right = breakRings(break_a_ring(rings, rings[0][1])) + 1;
-  return Math.min(left, right);
+  function removeRing(rings, ring) {
+    var result = []
+    for (var r of rings) {
+      if (r[0] != ring && r[1] != ring) result.push(r)
+    }
+    return result
+  }
+  if (rings.length == 0) return 0
+  var n0 = breakRings(removeRing(rings, rings[0][0])) + 1
+  var n1 = breakRings(removeRing(rings, rings[0][1])) + 1
+  return Math.min(n0, n1)
 }
 
-console.log(breakRings([[1, 2], [2, 3]]));
-// console.log(breakRings([[1, 2], [2, 3], [3, 4], [4, 5], [5, 6], [4, 6]]));
-// console.log(breakRings([[1, 2], [1, 3], [1, 4], [2, 3], [2, 4], [3, 4]]));
-// console.log(breakRings([[5, 6], [4, 5], [3, 4], [3, 2], [2, 1], [1, 6]]));
-// console.log(breakRings([[8, 9], [1, 9], [1, 2], [2, 3], [3, 4], [4, 5], [5, 6], [6, 7], [8, 7]]));
+console.log(breakRings([[1, 2], [2, 3], [3, 4], [4, 5], [5, 6], [4, 6]]));
+console.log(breakRings([[1, 2], [1, 3], [1, 4], [2, 3], [2, 4], [3, 4]]));
+console.log(breakRings([[5, 6], [4, 5], [3, 4], [3, 2], [2, 1], [1, 6]]));
+console.log(breakRings([[8, 9], [1, 9], [1, 2], [2, 3], [3, 4], [4, 5], [5, 6], [6, 7], [8, 7]]));
 
 // var assert = require('assert');
 
