@@ -37,7 +37,6 @@ function deepcalc(x, y, e_x, e_y) {
 }
 
 function findEnemy(you, dir, enemy) {
-  let ans_x = "";
   let [x, y] = [you.charCodeAt(0), +you.slice(1)];
   let [enemy_x, enemy_y] = [enemy.charCodeAt(0), +enemy.slice(1)];
   return [dircalc(x, y, enemy_x, enemy_y, dir), deepcalc(x, y, enemy_x, enemy_y)];
