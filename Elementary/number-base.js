@@ -1,11 +1,7 @@
 // https://js.checkio.org/mission/number-radix/
 
 function numberRadix(str_number, radix) {
-  return parseInt(str_number, radix).toString(radix).toUpperCase();
-  return parseInt(str_number, radix) || -1;
-  return str_number.split("")
-                   .every(digit => digit.match(/[A-Z]/g) ? digit.charCodeAt(0) - "A".charCodeAt(0) + 10 < radix : +digit < radix)
-                   ? parseInt(str_number, radix) : -1;
+  return parseInt(str_number, radix).toString(radix).toUpperCase() === str_number ? parseInt(str_number, radix) : -1;
 }
 
 console.log(numberRadix("ASD", 15));
