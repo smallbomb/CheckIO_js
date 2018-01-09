@@ -1,11 +1,9 @@
 // https://js.checkio.org/mission/stressful-subject/
 
 function isStressful(subj) {
-  let temp_str = subj.slice();
-  if (!temp_str.match(/[a-z]/)) return true;
-  if (temp_str.endsWith("!!!")) return true;
-  temp_str = temp_str.replace(/[!\.-]/g, '');
-  if (temp_str.match(/h+e+l+p+|a+s+a+p+|u+r+g+e+n+t+/i)) return true;
+  if (!subj.match(/[a-z]/)) return true;
+  if (subj.endsWith("!!!")) return true;
+  if (subj.replace(/[!\.-]/g, '').match(/h+e+l+p+|a+s+a+p+|u+r+g+e+n+t+/i)) return true;
   return false;
 }
 
