@@ -15,7 +15,7 @@ function brokenClock(startingTime, wrongTime, errorDescription) {
   let seconds = "0" + newdate.getSeconds();
   let formattedTime = hours.substr(-2) + ':' + minutes.substr(-2) + ':' + seconds.substr(-2);
 
-  return [formattedTime];
+  return formattedTime;
 }
 
 console.log(brokenClock('00:00:00', '00:00:15', '+5 seconds at 10 seconds'));
